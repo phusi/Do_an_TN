@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="Black">#060000</color>
+    <color name="White">#ffffff</color>
+    <color name="Orange_layout">#ff6600</color>
+    <color name="Orange_edt">#ff690b</color>
+    <color name="Orange_btn">#ff9e37</color>
+    <color name="Blue">#EF6C00</color>
+</resources>
