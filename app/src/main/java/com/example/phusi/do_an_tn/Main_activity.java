@@ -1,11 +1,13 @@
 package com.example.phusi.do_an_tn;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,12 +17,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.phusi.do_an_tn.fragment.Connect_Fragment;
 import com.example.phusi.do_an_tn.smart_config.demo_activity.EsptouchDemoActivity;
 
-public class Main_activity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import org.json.JSONArray;
+
+public class Main_activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    String urlGetData = "http://smartcube.ga/dashboard/includes/data.php?getData";
+    final String TAG = this.getClass().getSimpleName();
+
+    String url = "http://smartcube.ga/dashboard/includes/hum/write_hum.php?humidity=85&name=test";
+    Context context;
+
 
     DrawerLayout drawer;
     Toolbar toolbar;
@@ -42,7 +60,22 @@ public class Main_activity extends AppCompatActivity
         toggle.syncState();
          navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        RequestQueue mRequestQueue;  // Assume this exists.
+        StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, response);
+                Toast.makeText(Main_activity.this, response.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        MySingleton.getInstance(this).addToRequestQueue(stringRequest);
+//        getData(urlGetData);
     }
 
     @Override
@@ -220,14 +253,13 @@ public class Main_activity extends AppCompatActivity
         return true;
 
     }
-   protected void replaceFragment(Fragment fragment){
+    protected void replaceFragment(Fragment fragment){
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_main, fragment);
             ft.commit();
         }
     }
-
     protected void replaceFragmentContent(Fragment fragment) {
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -248,4 +280,23 @@ public class Main_activity extends AppCompatActivity
             }
         }
     }
+
+//    private void getData(String url){
+//        RequestQueue requestQueue = Volley.newRequestQueue(this);
+//        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+//                new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray jsonArray) {
+//                        Toast.makeText(Main_activity.this, jsonArray.toString(), Toast.LENGTH_SHORT).show();
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError volleyError) {
+//                        Toast.makeText(Main_activity.this, "Lỗi", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//        );
+//        requestQueue.add(jsonArrayRequest);
+//    }
 }
