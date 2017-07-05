@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:seekarc="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_joy_stick"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/nasa"
+    tools:context="com.example.phusi.do_an_tn.JoyStickActivity">
+
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/hienthi"
+        android:id="@+id/dieukhien">
+
+        <customviews.JoyStickView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/joy_stick_view"
+            android:layout_gravity="right|bottom"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout"
+           />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="350dp"
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true">
+        <com.example.seekarc_library.SeekArc
+            android:id="@+id/seekArc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="30dp"
+            seekarc:arcColor="@color/default_blue_light"
+            seekarc:clockwise="true"
+            seekarc:max="10"
+            seekarc:progressColor="@color/colorPrimary"
+            seekarc:rotation="180"
+            seekarc:startAngle="30"
+            seekarc:sweepAngle="300"
+            seekarc:thumb="@drawable/scrubber_control_pressed_holo"
+            seekarc:touchInside="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true" />
+        <TextView
+            android:id="@+id/seekArcProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="4"
+            android:textColor="@color/sang"
+            android:textSize="35dp" />
+        <TextView
+            android:id="@+id/textspeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/seekArcProgress"
+            android:text="SPEED"
+            android:textColor="@color/sang"
+            android:textSize="20dp" />
+
+
+    </RelativeLayout>
+
+    <ToggleButton
+        android:text="ToggleButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/toggleButton2"
+        android:background="@drawable/toggle_light"
+        android:textOn=" "
+        android:textOff=" "
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+    <ToggleButton
+        android:text="ToggleButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="100dp"
+        android:id="@+id/toggleButton1"
+        android:background="@drawable/toggle_light2"
+        android:textOn=" "
+        android:textOff=" "
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/hienthi"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tieude"
+            android:text="ĐỒ ÁN 2"
+            android:textColor="@color/doan"
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tieude"
+            android:textColor="#044b03"
+            android:text="Nhiệt độ: "
+            android:textSize="20dp"
+            android:id="@+id/nhietdo"/>
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="30*C"
+            android:textSize="30dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_below="@+id/nhietdo"
+            android:layout_alignLeft="@+id/nhietdo"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/nhietdo1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cm"
+            android:textSize="30dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_below="@+id/nhietdo"
+            android:layout_alignLeft="@+id/kcachtrai"
+            android:layout_marginLeft="50dp"
+            />
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="40 "
+            android:textSize="30dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_below="@+id/nhietdo"
+            android:layout_alignLeft="@+id/kcachtrai"
+            android:layout_marginLeft="0dp"
+            android:id="@+id/kcachtrai1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tieude"
+            android:text="Center Distant "
+            android:textColor="#044b03"
+            android:textSize="20dp"
+            android:layout_alignLeft="@+id/kcachtrai"
+            android:layout_marginLeft="140dp"
+            android:id="@+id/kcach"/>
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="140 "
+            android:textSize="30dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_below="@+id/kcach"
+            android:layout_alignLeft="@+id/kcachtrai"
+            android:layout_marginLeft="150dp"
+            android:id="@+id/kcach1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cm"
+            android:textSize="30dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_below="@+id/kcach"
+            android:layout_alignLeft="@+id/kcachtrai"
+            android:layout_marginLeft="210dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tieude"
+            android:text="Right Distant "
+            android:textColor="#044b03"
+            android:textSize="20dp"
+            android:layout_alignLeft="@+id/kcach"
+            android:layout_marginLeft="180dp"
+            android:id="@+id/kcachphai"/>
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="80 "
+            android:textSize="30dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_below="@+id/kcachphai"
+            android:layout_alignLeft="@+id/kcachphai"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/kcachphai1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cm"
+            android:textSize="30dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_below="@+id/kcachphai"
+            android:layout_alignLeft="@+id/kcachphai"
+            android:layout_marginLeft="65dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Left Distant "
+            android:textColor="#044b03"
+            android:textSize="20dp"
+            android:layout_marginLeft="100dp"
+            android:id="@+id/kcachtrai"
+            android:layout_above="@+id/kcachtrai1"
+            android:layout_toEndOf="@+id/nhietdo"
+            android:layout_marginStart="14dp" />
+
+        <ToggleButton
+            android:text="ToggleButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/toggleButton"
+            android:background="@drawable/toggle_auto"
+            android:textOff=" "
+            android:textOn=" "/>
+
+        <Button
+            android:text=" "
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/button"
+            android:layout_above="@+id/nhietdo"
+            android:layout_toStartOf="@+id/kcachtrai"
+            android:layout_marginEnd="52dp"
+            android:background="@drawable/megaphone"
+            android:onClick="buzzer"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

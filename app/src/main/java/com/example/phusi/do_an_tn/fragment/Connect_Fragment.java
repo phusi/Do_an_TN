@@ -1,5 +1,6 @@
 package com.example.phusi.do_an_tn.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,9 @@ import android.widget.EditText;
 import android.support.v4.view.ViewPager;
 import android.widget.Switch;
 
+import com.example.phusi.do_an_tn.JoyStickActivity;
+import com.example.phusi.do_an_tn.Main_activity;
+import com.example.phusi.do_an_tn.MapsActivity;
 import com.example.phusi.do_an_tn.R;
 import com.example.phusi.do_an_tn.Setting;
 
@@ -167,7 +171,11 @@ public class Connect_Fragment extends Fragment implements ViewPager.OnPageChange
                     Light.setOnCheckedChangeListener(this);
                     Laze.setOnCheckedChangeListener(this);
                     return v3;
-
+                case 4:
+//                    Intent i =  i = new Intent(Connect_Fragment.this, com.example.phusi.do_an_tn.JoyStickActivity.class);
+//                    startActivity(i);
+//                    View v4 = inflater.inflate(R.layout.activity_joy_stick, container, false);
+//                    return v4;
 
                 default:
                     return null;

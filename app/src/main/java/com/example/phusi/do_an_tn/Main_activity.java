@@ -36,7 +36,7 @@ public class Main_activity extends AppCompatActivity implements NavigationView.O
     String urlGetData = "http://smartcube.ga/dashboard/includes/data.php?getData";
     final String TAG = this.getClass().getSimpleName();
 
-    String url = "http://smartcube.ga/dashboard/includes/hum/write_hum.php?humidity=85&name=test";
+//    String url = "http://smartcube.ga/dashboard/includes/hum/write_hum.php?humidity=85&name=test";
     Context context;
 
 
@@ -61,7 +61,7 @@ public class Main_activity extends AppCompatActivity implements NavigationView.O
          navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         RequestQueue mRequestQueue;  // Assume this exists.
-        StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(urlGetData, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, response);
@@ -74,8 +74,7 @@ public class Main_activity extends AppCompatActivity implements NavigationView.O
             }
         });
 
-        MySingleton.getInstance(this).addToRequestQueue(stringRequest);
-//        getData(urlGetData);
+        MySingleton.getInstance(this).addToRequestQueue(stringRequest);//get data
     }
 
     @Override
@@ -86,7 +85,6 @@ public class Main_activity extends AppCompatActivity implements NavigationView.O
         title=getString(R.string.title_control);
         getSupportActionBar().setTitle(title);
         replaceFragment(fragment);
-
     }
 
     protected void setupToolbar() {
