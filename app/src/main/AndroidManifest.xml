@@ -50,10 +50,11 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".JoyStickActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
+        <activity android:name=".MainCar"></activity>
     </application>
 
 </manifest>

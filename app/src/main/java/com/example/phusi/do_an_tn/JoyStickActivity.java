@@ -162,7 +162,7 @@ public class JoyStickActivity extends Activity implements ClientSocket.ServerLis
 
     private void initViews() {
         btAnim = AnimationUtils.loadAnimation(this, R.anim.bt_anim);
-        btT = (Button) findViewById(R.id.bt_t);
+//        btT = (Button) findViewById(R.id.bt_t);
 
         // prSpeed = (ProgressBar) findViewById(R.id.pr_speed);
         joyStickView = (JoyStickView) findViewById(R.id.joy_stick_view);

@@ -204,7 +204,11 @@ public class Main_activity extends AppCompatActivity implements NavigationView.O
             case R.id.nav_map:
                 Intent i = new Intent(Main_activity.this,MapsActivity.class);
                 startActivity(i);
-
+                break;
+            case R.id.nav_car:
+                Intent intent = new Intent(Main_activity.this,MainCar.class);
+                startActivity(intent);
+                break;
         }
 
         replaceFragment(fragment);

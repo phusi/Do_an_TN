@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/xecuacang"
+    tools:context="com.example.phusi.do_an_tn.MainCar">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="80"
+        android:ems="8"
+        android:layout_below="@+id/txtPort"
+        android:layout_alignLeft="@+id/txtPort"
+
+        android:textColor="@android:color/holo_red_light"
+        android:id="@+id/edtPort" />
+
+    <TextView
+        android:id="@+id/doan2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LUẬN VĂN TỐT NGHIỆP"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textSize="30dp"
+        android:textColor="@android:color/holo_red_dark"/>
+    <TextView
+        android:id="@+id/tendoan2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/doan2"
+        android:layout_centerHorizontal="true"
+        android:text="Module Xe Điều Kiển Từ Xa Qua Wifi"
+        android:textSize="20dp"
+        android:textColor="@android:color/holo_red_light"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tendoan2"
+        android:layout_marginTop="55dp"
+        android:text="IP ESP"
+        android:layout_alignLeft="@+id/tendoan2"
+        android:id="@+id/txtIp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tendoan2"
+        android:text="PORT"
+        android:layout_alignLeft="@+id/txtIp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="55dp"
+        android:id="@+id/txtPort"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="tab"
+        android:id="@+id/test"
+        android:text="Bắt Đầu"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:textColor="@android:color/holo_blue_light"
+        android:ems="5"/>
+
+
+    <EditText
+        android:id="@+id/edtIp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="192.168.0.102"
+        android:layout_below="@+id/txtIp"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_alignLeft="@+id/txtIp" />
+
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:onClick="Start"
+        android:text="Kết Nối"
+        android:textSize="25dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:ems="5"
+        android:layout_alignStart="@+id/test" />
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onCloseSocket"
+        android:text="Close"
+        android:textSize="25dp"
+        android:ems="5"
+        android:layout_below="@+id/test"
+        android:layout_alignStart="@+id/test" />
+
+    <!--<ToggleButton-->
+        <!--android:text="ToggleButton"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:textOn=" "-->
+        <!--android:textOff=" "-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:background="@drawable/hinhamthanh"-->
+        <!--android:id="@+id/toggleButton3"-->
+        <!--android:checked="true" />-->
+
+
+</RelativeLayout>

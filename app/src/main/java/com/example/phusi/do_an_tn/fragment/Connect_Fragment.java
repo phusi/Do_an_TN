@@ -74,6 +74,7 @@ public class Connect_Fragment extends Fragment implements ViewPager.OnPageChange
         private Button btConnect;
         private Switch sercurity, Light, Laze, Gps;
 
+
         public BoardFragment() {
 
         }
@@ -112,44 +113,8 @@ public class Connect_Fragment extends Fragment implements ViewPager.OnPageChange
 
             switch (sectionNumber) {
                 case 1:
-                    View v1 = inflater.inflate(R.layout.fragment_connect, container, false);
-                    edIP = (EditText) v1.findViewById(R.id.ed_ipAddress);
-                    edPort = (EditText) v1.findViewById(R.id.ed_port);
-                    btConnect = (Button) v1.findViewById(R.id.bt_connect);
+                    View v1 = inflater.inflate(R.layout.fragment_control_house, container, false);
 
-                    if (settings.getString(Setting.IP_ADDRESS) != null) {
-                        edIP.setText(settings.getString(Setting.IP_ADDRESS));
-                    }
-                    if (settings.getInt(Setting.PORT) != -1) {
-                        edPort.setText(Integer.toString(settings.getInt(Setting.PORT)));
-                    }
-                    if (connected) {
-                        connectStatusChange(true);
-                    }
-
-                    btConnect.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            if (!connected) {
-                                String ip = edIP.getText().toString();
-                                int port = Integer.valueOf(edPort.getText().toString());
-                                clientSocket = new ClientSocket(ip, port);
-                                clientSocket.setServerListener(BoardFragment.this);
-                                btConnect.setText("Connecting...");
-                                clientSocket.connect();
-                                settings.putString(Setting.IP_ADDRESS, ip);
-                                settings.putInt(Setting.PORT, port);
-//                                connectStatusChange(true);
-                            } else {
-
-                                clientSocket.disconnect();
-                                connectStatusChange(false);
-                            }
-
-                        }
-                    });
-                    return v1;
                 case 2:
 
                     View v2 = inflater.inflate(R.layout.fragment_control_car, container, false);
@@ -164,18 +129,13 @@ public class Connect_Fragment extends Fragment implements ViewPager.OnPageChange
 
                 case 3:
                     View v3 = inflater.inflate(R.layout.fragment_control_house, container, false);
-                    Light = (Switch) v3.findViewById(R.id.Light);
+//                    Light = (Switch) v3.findViewById(R.id.Light);
                     Laze = (Switch) v3.findViewById(R.id.Laze);
                     Light.setChecked(settings.getBoolean(Setting.LIGHT));
                     Laze.setChecked(settings.getBoolean(Setting.LAZE));
                     Light.setOnCheckedChangeListener(this);
                     Laze.setOnCheckedChangeListener(this);
                     return v3;
-                case 4:
-//                    Intent i =  i = new Intent(Connect_Fragment.this, com.example.phusi.do_an_tn.JoyStickActivity.class);
-//                    startActivity(i);
-//                    View v4 = inflater.inflate(R.layout.activity_joy_stick, container, false);
-//                    return v4;
 
                 default:
                     return null;
@@ -204,15 +164,15 @@ public class Connect_Fragment extends Fragment implements ViewPager.OnPageChange
                     }
                     settings.putBoolean(Setting.SERCURITY,isChecked);
                     break;
-                case R.id.Light:
-                    if (isChecked) {
-                        clientSocket.sendMessenge("light on");
-
-                    } else {
-                        clientSocket.sendMessenge("light off");
-                    }
-                    settings.putBoolean(Setting.LIGHT,isChecked);
-                    break;
+//                case R.id.Light:
+//                    if (isChecked) {
+//                        clientSocket.sendMessenge("light on");
+//
+//                    } else {
+//                        clientSocket.sendMessenge("light off");
+//                    }
+//                    settings.putBoolean(Setting.LIGHT,isChecked);
+//                    break;
                 case R.id.Laze:
                     if (isChecked) {
                         clientSocket.sendMessenge("laze on");
@@ -248,8 +208,8 @@ public class Connect_Fragment extends Fragment implements ViewPager.OnPageChange
         @Override
         public int getCount() {
 
-//            return  1;
-            return connected ? 3 : 1;
+            return  1;
+//            return connected ? 3 : 1;
         }
 
         @Override
