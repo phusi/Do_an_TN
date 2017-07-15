@@ -3,13 +3,10 @@ package com.example.phusi.do_an_tn;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,28 +14,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.phusi.do_an_tn.fragment.Connect_Fragment;
 import com.example.phusi.do_an_tn.smart_config.demo_activity.EsptouchDemoActivity;
 
-import org.json.JSONArray;
-
 public class Main_activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    String urlGetData = "http://smartcube.ga/dashboard/includes/data.php?getData";
+//    String urlGetData = "http://smartcube.ga/dashboard/includes/data.php?getData";
     final String TAG = this.getClass().getSimpleName();
 
-//    String url = "http://smartcube.ga/dashboard/includes/hum/write_hum.php?humidity=85&name=test";
     Context context;
-
 
     DrawerLayout drawer;
     Toolbar toolbar;
@@ -51,6 +37,42 @@ public class Main_activity extends AppCompatActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_detail);
 
+
+
+//        /*đọc json*/
+//        JsonObjectRequest jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, urlGetData, null, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+////                Toast.makeText(Main_activity.this, response.toString(), Toast.LENGTH_SHORT).show();
+//                try {
+//                    String temp = response.getString("temp");
+//                    String hum = response.getString("hum");
+//                    String light = response.getString("light");
+//                    String smoke = response.getString("smoke");
+//                    String sw1 = response.getString("sw1");
+//                    String sw2 = response.getString("sw2");
+////                    Toast.makeText(Main_activity.this, temp, Toast.LENGTH_SHORT).show();
+//
+//                    Connect_Fragment.BoardFragment connect_fragment = new Connect_Fragment.BoardFragment();
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("nhietdo",temp);
+//                    connect_fragment.setArguments(bundle);
+//
+//
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);//get data
+//        /*  ******************************************   */
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
          drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -58,23 +80,12 @@ public class Main_activity extends AppCompatActivity implements NavigationView.O
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-         navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        RequestQueue mRequestQueue;  // Assume this exists.
-        StringRequest stringRequest = new StringRequest(urlGetData, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, response);
-                Toast.makeText(Main_activity.this, response.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
-            }
-        });
 
-        MySingleton.getInstance(this).addToRequestQueue(stringRequest);//get data
+
+
+
     }
 
     @Override
@@ -262,26 +273,26 @@ public class Main_activity extends AppCompatActivity implements NavigationView.O
             ft.commit();
         }
     }
-    protected void replaceFragmentContent(Fragment fragment) {
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(
-                R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-        fragmentTransaction
-                .replace(R.id.fragment_main, fragment)
-                .addToBackStack(null)
-                .commit();
-    }
-    protected void clearFragmentBackStack() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        if (fragmentManager.getBackStackEntryCount() > 1) {
-            for (int i = 1; i < fragmentManager.getBackStackEntryCount(); i++) {
-                //remove other fragments from stack
-                getSupportFragmentManager().popBackStack();
-            }
-        }
-    }
+//    protected void replaceFragmentContent(Fragment fragment) {
+//        // Insert the fragment by replacing any existing fragment
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.setCustomAnimations(
+//                R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+//        fragmentTransaction
+//                .replace(R.id.fragment_main, fragment)
+//                .addToBackStack(null)
+//                .commit();
+//    }
+//    protected void clearFragmentBackStack() {
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        if (fragmentManager.getBackStackEntryCount() > 1) {
+//            for (int i = 1; i < fragmentManager.getBackStackEntryCount(); i++) {
+//                //remove other fragments from stack
+//                getSupportFragmentManager().popBackStack();
+//            }
+//        }
+//    }
 
 //    private void getData(String url){
 //        RequestQueue requestQueue = Volley.newRequestQueue(this);

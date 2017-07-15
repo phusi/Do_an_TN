@@ -28,11 +28,13 @@
             android:id="@+id/gas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="240dp"
+            android:layout_marginLeft="255dp"
             android:text="800"
             android:textColor="@color/sang"
-            android:textSize="35dp" />
+            android:textSize="35dp"
+            android:layout_above="@+id/text_temp"
+            android:layout_toEndOf="@+id/seekTemp"
+            android:layout_marginStart="41dp" />
         <com.example.seekarc_library.SeekArc
             android:id="@+id/seekTemp"
             android:layout_width="200dp"
@@ -46,6 +48,7 @@
             seekarc:progressColor="@color/colorPrimary"
             seekarc:rotation="180"
             seekarc:startAngle="30"
+            seekarc:enabled="false"
             seekarc:sweepAngle="300"
             seekarc:thumb="@drawable/scrubber_control_pressed_holo"
             seekarc:touchInside="true"
@@ -58,7 +61,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="65dp"
             android:text="29°C"
-            android:textColor="@color/sang"
+            android:textColor="@color/colorAccent"
             android:textSize="35dp" />
         <TextView
             android:id="@+id/text_temp"
@@ -68,14 +71,14 @@
             android:layout_marginLeft="45dp"
             android:layout_below="@+id/temp"
             android:text="Temperature"
-            android:textColor="@color/sang"
+            android:textColor="@color/colorAccent"
             android:textSize="20dp" />
 
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="365dp"
         android:layout_height="200dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="0dp">
@@ -91,20 +94,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="245dp"
+            android:layout_marginLeft="255dp"
             android:text="150"
-            android:textColor="@color/sang"
+            android:textColor="@color/colorAccent"
             android:textSize="35dp" />
         <com.example.seekarc_library.SeekArc
-            android:id="@+id/seekArc"
+            android:id="@+id/seekHum"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="30dp"
             seekarc:arcColor="@color/default_blue_light"
             seekarc:clockwise="true"
-            seekarc:max="100"
-            seekarc:progress="89"
+            seekarc:max="95"
+            seekarc:enabled="false"
+            seekarc:progress="80"
             seekarc:progressColor="@color/colorPrimary"
             seekarc:rotation="180"
             seekarc:startAngle="30"
@@ -114,12 +118,12 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true" />
         <TextView
-            android:id="@+id/seekArcProgress"
+            android:id="@+id/txtHum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="70dp"
-            android:text="89%"
+            android:text="80%"
             android:textColor="@color/sang"
             android:textSize="35dp" />
         <TextView
@@ -128,10 +132,20 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="60dp"
-            android:layout_below="@+id/seekArcProgress"
+            android:layout_below="@+id/txtHum"
             android:text="Humidity"
             android:textColor="@color/sang"
             android:textSize="20dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/textspeed"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="8dp" />
 
     </RelativeLayout>
 
@@ -146,7 +160,7 @@
             android:textSize="@dimen/Gps_size"
             android:text="Light"/>
         <Switch
-            android:id="@+id/Laze"
+            android:id="@+id/lamp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
@@ -163,7 +177,7 @@
             android:textSize="@dimen/Gps_size"
             android:text="Fan"/>
         <Switch
-            android:id="@+id/BedRoom"
+            android:id="@+id/fan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
