@@ -318,7 +318,7 @@ public class Connect_Fragment extends Fragment implements ViewPager.OnPageChange
                             MySingleton.getInstance(getActivity()).addToRequestQueue(objectRequest);//get data
         /*  ******************************************   */
                         }
-                    },10,3000);
+                    },30,3000);
 
                     return v2;
 
